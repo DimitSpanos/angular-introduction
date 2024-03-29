@@ -9,6 +9,5 @@ import { Person } from 'src/app/shared/interfaces/person';
   styleUrl: './person-table.component.css'
 })
 export class PersonTableComponent {
-  @Input() person: Person | undefined //dhlwnoume apla oti einai input xwris na exoume perasei - orisei data
-  
+  @Input() person: Person | undefined //dhlwnoume apla oti einai input xwris na exoume perasei - orisei data  
 }
