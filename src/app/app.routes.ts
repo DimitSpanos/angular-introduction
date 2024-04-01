@@ -8,6 +8,5 @@ export const routes: Routes = [
     {path: 'for-directive-example', component: ForDirectiveExampleComponent},
     {path: 'component-input-example', component: ComponentInputExampleComponent},
     {path: 'event-bind-example', component: EventBindExampleComponent},
-    {path: '', component: WelcomeComponent}
-    //edw otan pathsoume to CF5 - Angular Introduction tha mas kanei redirect kai tha fernei to welcome component 
+    {path: '', component: WelcomeComponent} 
 ];
