@@ -1,0 +1,15 @@
+<div class="container ">
+    
+    <br>
+    <h4>{{ '@for' }} Directive Example</h4>
+    <br>
+    <div class="d-flex flex-wrap text-nowrap gap-2">
+      <!-- oi users sto app.component -->
+      @for (user of users; track user) {  
+        <app-person-table [person]="user"></app-person-table>
+      }
+    </div>
+    
+  
+    
+  </div>
