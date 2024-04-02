@@ -10,12 +10,12 @@
     </thead>
     <tbody>
         @for (row of data; track row) {
-            <tr >
-                <td>{{ row.givenName}}</td>
-                <td>{{ row.surName}}</td>
-                <td>{{ row.age}}</td>
-                <td class="d-none d-lg-table-cell">{{ row.email}}</td>
-                <td class="d-none d-lg-table-cell">{{ row.education}}</td>
+            <tr (dblclick)="onPersonClicked(row)" >
+                <td>{{ row.givenName }}</td>
+                <td>{{ row.surName }}</td>
+                <td>{{ row.age }}</td>
+                <td class="d-none d-lg-table-cell">{{ row.email }}</td>
+                <td class="d-none d-lg-table-cell">{{ row.education }}</td>
             </tr>
         }
     </tbody>

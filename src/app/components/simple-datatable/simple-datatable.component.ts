@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { EPerson } from 'src/app/shared/interfaces/person';
 import { sortBy } from 'lodash-es';
@@ -14,6 +14,7 @@ export class SimpleDatatableComponent {
   @Input() data: EPerson[]
   //dhlwnoume oti ta data tha einai enas pinakas EPerson[]
   //ta pername san input sto data pinakopoihmena giati de thelw na exw ola ta data edw mesa
+  @Output() personClicked = new EventEmitter<EPerson>()
 
   sortOrder = {
     givenName: 'none',
@@ -41,5 +42,9 @@ export class SimpleDatatableComponent {
 
   sortSign(sortKey: string) {
     return this.sortOrder[sortKey] === 'asc' ? '▲' : '▼'
+  }
+
+  onPersonClicked(person: EPerson) {  //to onPersonClicked einai ena event pou tha emfanizei ta stoixeia apo ena EPerson
+    this.personClicked.emit(person)
   }
 }
