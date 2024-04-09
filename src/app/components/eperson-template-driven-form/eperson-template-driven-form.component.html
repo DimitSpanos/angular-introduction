@@ -1,76 +1,49 @@
 <div class="d-flex flex-column">
    <h5>New Person Form</h5>
-   <form #form="ngForm" class="d-flex flex-column " action="">
+   <form [formGroup]="form" class="d-flex flex-column " >
       <mat-form-field>
          <mat-label>First Name</mat-label>
-         <input matInput ngModel required type="text" name="givenName" #givenName = "ngModel" >
-         @if (givenName.errors && givenName.errors['required']) {
+         <input matInput formControlName="givenName" type="text" >
+         @if (form.get("givenName").invalid && form.get("givenName").touched) {
             <mat-error>First Name is required</mat-error>
          }
       </mat-form-field>
       <mat-form-field>
          <mat-label>Last Name</mat-label>
-         <input 
-            matInput ngModel required type="text" name="surName" #surName = "ngModel" >
-         @if (surName.errors && surName.errors['required']) {
+         <input matInput formControlName="surName" type="text" >
+         @if (form.get("surName").invalid && form.get("surName").touched) {
             <mat-error>Last Name is required</mat-error>
          }
       </mat-form-field>
       <mat-form-field>
          <mat-label>Age</mat-label>
-         <input 
-            matInput ngModel required type="number" min="18" max="100" name="age" #age = "ngModel" >
-         @if (age.errors && age.errors['required']) {
-            <mat-error>Age is required</mat-error>
-         }
-         @if (age.errors && age.errors['min']) {
-            <mat-error>Age must be &geq; 18</mat-error>
-         }
-         @if (age.errors && age.errors['max']) {
-            <mat-error>Age must be &leq; 100</mat-error>
+         <input matInput formControlName="age" type="text" >
+         @if (form.get("age").invalid && form.get("age").touched) {
+            <mat-error>Age is missing or invalid</mat-error>
          }
       </mat-form-field>
       <mat-form-field>
          <mat-label>Email</mat-label>
-         <input matInput ngModel required type="email" name="email" #email = "ngModel"  pattern="/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/">
-         @if (email.errors && email.errors['required']) {
-            <mat-error>Email is required</mat-error>
+         <input matInput formControlName="email" type="text" >
+         @if (form.get("email").invalid && form.get("email").touched) {
+            <mat-error>Email is missing or invalid</mat-error>
          }
-         @if (email.errors && email.errors['pattern']) {
-            <mat-error>Invalid Email</mat-error>
-         }
-      </mat-form-field>
-      
-   <mat-form-field>
-
-      <mat-label>Education</mat-label>
-
-      <mat-select required ngModel name="education" type="text" #education="ngModel" >
-        <mat-option value="Some college, no degree"
-
-          >Some college, no degree</mat-option
-
-        >
-
-        <mat-option value="Master’s degree">Master’s degree</mat-option>
-
-        <mat-option value="Bachelor’s degree">Bachelor’s degree</mat-option>
-
-        <mat-option value="Associate’s degree">Associate’s degree</mat-option>
-
-        <mat-option value="High school diploma or equivalent"
-
-          >High school diploma or equivalent</mat-option
-
-        >
-        <mat-option value="No formal education">No formal education</mat-option>
-
-      </mat-select>
-      @if (education.errors && education.errors['required']) {
-         <mat-error>Education is required</mat-error>
-      }
-
-    </mat-form-field>
+      </mat-form-field>      
+      <mat-form-field>
+         <mat-label>Education</mat-label>
+         <mat-select type="text" formControlName="education">
+         <mat-option value="Some college, no degree"
+         >Some college, no degree</mat-option
+         >
+         <mat-option value="Master’s degree">Master’s degree</mat-option>
+         <mat-option value="Bachelor’s degree">Bachelor’s degree</mat-option>
+         <mat-option value="Associate’s degree">Associate’s degree</mat-option>
+         <mat-option value="High school diploma or equivalent"
+         >High school diploma or equivalent</mat-option
+         >
+         <mat-option value="No formal education">No formal education</mat-option>
+         </mat-select>
+         </mat-form-field>
    </form>
    <button mat-flat-button color="primary" [disabled]="form.invalid" (click)="onSubmit(form.value)">Submit</button> 
    <!-- [disabled]="form.invalid einai to onoma ths metablhths #form -->
