@@ -18,13 +18,13 @@ export class HttpClientExampleComponent implements OnInit{
   chuckNorrisJoke = '';
 
   ngOnInit(): void {
-      // this.jokesService.getDadJoke().subscribe((data) => { 
+      // this.jokesService.getDadJoke().subscribe((data: DadJoke) => {  //alternative instead of the interface .subscribe((data: {joke: string}) => {
       //   console.log(data.joke);
       //   this.dadJoke = data.joke;
       // })
       this.refreshDadJoke()
 
-      // this.jokesService.getChuckNorrisJoke().subscribe((data) => {
+      // this.jokesService.getChuckNorrisJoke().subscribe((data: ChuckNorrisJoke) => { //alternative instead of the interface .subscribe((data: {value: string}) => {
       //   console.log(data.value);
       //   this.chuckNorrisJoke = data.value;
       // })   
