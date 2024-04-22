@@ -26,10 +26,13 @@ export class UserRegistrationComponent {
     email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)]),
     password: new FormControl('', [Validators.required, Validators.minLength(4)]),
     confirmPassword: new FormControl('', [Validators.required, Validators.minLength(4)])
-  })
-  passwordConfirmValidator(form: FormGroup) {
+  },
+  this.passwordConfirmValidator, // add a custom validator function to the form group
+)
+
+  passwordConfirmValidator(form: FormGroup) { // create a method called passwordConfirmValidator that takes a form group as an argument
     if (form.get('password').value !== form.get('confirmPassword').value) {
-      form.get('confirmPassword').setErrors({passwordMismatch: true})
+      form.get('confirmPassword').setErrors({passwordMismatch: true}) //we name the error passwordMismatch
       return { passwordMismatch: true } // return an object with a passwordMismatch property if the passwords do not match
     }
     return {} // return an empty object if the passwords match
@@ -43,7 +46,7 @@ export class UserRegistrationComponent {
     
     this.userService.registerUser(user).subscribe({
       next: (response) => {
-        console.log('User registered: ', response)
+        console.log('User registered: ', response.msg)
         this.registrationStatus = {success: true, message: response.msg} // if the user is registered successfully, set the success property to true and the message property to 'User registered successfully'
       },
       error: (response) => { // if i get an http error, i will display an error message to the user 
@@ -57,6 +60,7 @@ export class UserRegistrationComponent {
     registerAnotherUser() {
       this.form.reset() // reset the form
       this.registrationStatus = {success: false, message: 'Not attempted yet'} // reset the registrationStatus object
+      //in the form first we check through the message and after registering the user we check through the response
     }
 
     check_duplicate_email() { //we dont pass any arguments to this method because we are going to get the email value from the form

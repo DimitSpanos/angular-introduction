@@ -27,7 +27,7 @@
       <mat-label>
          Email
       </mat-label>
-      <input matInput formControlName="email" type="text"  (blur)="check_duplicate_email">
+      <input matInput formControlName="email" type="text"  (blur)="check_duplicate_email()">
       @if(form.get('email').hasError('duplicateEmail')) {
          <mat-error>
             Email already exists
