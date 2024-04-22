@@ -11,6 +11,7 @@ import { HttpClientExampleComponent } from './components/http-client-example/htt
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { RestrictedContentExampleComponent } from './components/restricted-content-example/restricted-content-example.component';
 import { authGuard } from './shared/guards/auth.guard';
+import { UserLoginComponent } from './components/user-login/user-login.component';
 
 export const routes: Routes = [
     {path: 'component-output', component: ComponentOutputExampleComponent},
@@ -23,5 +24,6 @@ export const routes: Routes = [
     {path: 'reactive-form-example', component: ReactiveFormExampleComponent},
     {path: 'http-client-example', component: HttpClientExampleComponent},
     {path: 'user-registration-example', component: UserRegistrationComponent},
-    {path: 'restricted-content-example', component: RestrictedContentExampleComponent, canActivate: [authGuard]} //we guard this route with the authGuard so that only authenticated users can access it
+    {path: 'restricted-content-example', component: RestrictedContentExampleComponent, canActivate: [authGuard]}, //we guard this route with the authGuard so that only authenticated users can access it
+    {path: 'login', component: UserLoginComponent},
 ];
