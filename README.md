@@ -713,3 +713,5 @@ getDadJoke() {
   ```
 
   ##Βημα 16: Υλοποιηση της ασκησης Fun for nerds
+
+  ##Βημα 17: CRUD Scaffolding

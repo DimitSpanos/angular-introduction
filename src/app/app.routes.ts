@@ -13,6 +13,9 @@ import { RestrictedContentExampleComponent } from './components/restricted-conte
 import { authGuard } from './shared/guards/auth.guard';
 import { UserLoginComponent } from './components/user-login/user-login.component';
 import { FunForNerdsComponent } from './components/fun-for-nerds/fun-for-nerds/fun-for-nerds.component';
+import { CrudDashboardComponent } from './components/crud/crud-dashboard/crud-dashboard.component';
+import { CrudCreateComponent } from './components/crud/crud-create/crud-create.component';
+import { CrudReadComponent } from './components/crud/crud-read/crud-read.component';
 
 export const routes: Routes = [
     {path: 'component-output', component: ComponentOutputExampleComponent},
@@ -27,5 +30,10 @@ export const routes: Routes = [
     {path: 'user-registration-example', component: UserRegistrationComponent},
     {path: 'restricted-content-example', component: RestrictedContentExampleComponent, canActivate: [authGuard]}, //we guard this route with the authGuard so that only authenticated users can access it
     {path: 'login', component: UserLoginComponent},
-    {path: 'fun-for-nerds', component: FunForNerdsComponent}
+    {path: 'fun-for-nerds', component: FunForNerdsComponent},
+    {path: 'crud-example' , component: CrudDashboardComponent, canActivate: [authGuard]},
+    {path: 'crud-example/create', component: CrudCreateComponent},
+    {path: 'crud-example/read', component: CrudReadComponent},
+    {path: 'crud-example/update', component: CrudCreateComponent},
+    {path: 'crud-example/delete', component: CrudCreateComponent},
 ];
