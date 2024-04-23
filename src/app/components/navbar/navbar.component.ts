@@ -16,6 +16,7 @@ export class NavbarComponent {
   user = this.userService.user // get the user signal from the UserService class - logged in user or null
 
   logout() {
+    console.log('Logging out')
     this.userService.logoutUser() // call the logoutUser method from the UserService class
   }
 }
