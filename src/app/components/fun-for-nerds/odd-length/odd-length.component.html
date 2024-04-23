@@ -1,0 +1,11 @@
+@if(partialWord.length > 0) {
+   <span class="text-danger ">{{ partialWord }}</span> <br/>
+}
+@if(!words.length) {
+   <span class="text-danger ">No odd length words found</span>
+} @else {
+   @for (word of words; track word) {
+     {{ word }}<br/>
+   }
+}
+
